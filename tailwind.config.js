@@ -6,6 +6,7 @@ module.exports = {
     colors: {
       turqoise: "#178582",
       gold: "#BFA181",
+      darkBlue: "#0A1828",
     },
   },
   plugins: [],
