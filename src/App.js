@@ -15,7 +15,7 @@ function App() {
           <img
             src={logo}
             alt="Logo"
-            className="mt-[4%] w-[18%] h-[18%] border-[5px] border-gold rounded-full mx-auto"
+            className="mt-[4%] w-[16%] h-[16%] border-[5px] border-gold rounded-full mx-auto"
           />
           <h2 className="text-gold mt-[4%] text-4xl">
             Hello, I’m Taven an aspiring software engineer. With previous intern
