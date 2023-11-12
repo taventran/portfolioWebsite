@@ -1,10 +1,18 @@
+import React, {useState} from 'react';
 import './App.css';
-import logo from './images/pfp.jpg'
-import linkedin from './images/linkedin.svg'
-import github from './images/github.svg'
-import instagram from './images/instagram2.svg'
+import Contact from './components/contact'
+import logo from './images/pfp.jpg';
+import linkedin from './images/linkedin.svg';
+import github from './images/github.svg';
+import instagram from './images/instagram2.svg';
 
 function App() {
+  const [showContact, setShowContact] = useState(false);
+  
+  const handleContactClick = () => {
+    setShowContact(!showContact);
+  };
+
   return (
     <div className="font-mono">
       <header className="text-turqoise font-bold text-2xl grid grid-cols-9 mt-[2%] ml-[2%] ">
@@ -13,12 +21,16 @@ function App() {
         </h1>
         <h1 className="hover:text-gold hover:cursor-pointer">Projects</h1>
         <h1 className="hover:text-gold hover:cursor-pointer">Socials</h1>
-        <div className="text-center col-start-7 border-2 rounded hover:text-darkBlue hover:bg-turqoise hover:cursor-pointer">
+        <div
+          className="text-center col-start-7 border-2 rounded hover:text-darkBlue hover:bg-turqoise hover:cursor-pointer"
+          onClick={handleContactClick}
+        >
           Contact Me
         </div>
       </header>
       <hr className="text-gold border-[3px] w-[96%] ml-[2%] my-[2%]"></hr>
       <body>
+        {showContact && <Contact />}
         <div className="text-center">
           <img
             src={logo}
@@ -32,9 +44,8 @@ function App() {
           </h2>
         </div>
       </body>
-      <footer className="bg-turqoise box-content h-[10%] w-full mt-[8%] grid grid-cols-5 ">
+      <footer className="sticky top-[100vh] bg-turqoise box-content h-[8%] w-full mt-[8%] grid grid-cols-5 ">
         <h1 className="ml-[10%] text-white">Connect with me on my socials!</h1>
-
         <img
           className="row-start-2 ml-[10%] hover:cursor-pointer"
           src={linkedin}
@@ -43,10 +54,10 @@ function App() {
           className="row-start-2 ml-[-70%] hover:cursor-pointer"
           src={github}
         />
-        <img className="row-start-2  ml-[-150%] hover:cursor-pointer" 
+        <img
+          className="row-start-2  ml-[-150%] hover:cursor-pointer"
           src={instagram}
         />
-
       </footer>
     </div>
   );
