@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
+import { CSSTransition } from 'react-transition-group';
 import Contact from './components/contact'
 import logo from './images/pfp.jpg';
 import linkedin from './images/linkedin.svg';
 import github from './images/github.svg';
-import instagram from './images/instagram2.svg';
 
 function App() {
   const [showContact, setShowContact] = useState(false);
@@ -30,7 +30,6 @@ function App() {
       </header>
       <hr className="text-gold border-[3px] w-[96%] ml-[2%] my-[2%]"></hr>
       <body>
-        {showContact && <Contact />}
         <div className="text-center">
           <img
             src={logo}
@@ -43,8 +42,16 @@ function App() {
             growing in this field and to make a positive impact where ever I am.
           </h2>
         </div>
+        <CSSTransition
+          in={showContact}
+          timeout={500} // Adjust the duration of the animation as needed
+          classNames="contact"
+          unmountOnExit
+        >
+        {showContact && <Contact />}
+        </CSSTransition>
       </body>
-      <footer className="sticky top-[100vh] bg-turqoise box-content h-[8%] w-full mt-[8%] grid grid-cols-5 ">
+      <footer className="sticky bg-turqoise box-content  w-full  grid grid-cols-5 ">
         <h1 className="ml-[10%] text-white">Connect with me on my socials!</h1>
         <img
           className="row-start-2 ml-[10%] hover:cursor-pointer"
@@ -53,10 +60,6 @@ function App() {
         <img
           className="row-start-2 ml-[-70%] hover:cursor-pointer"
           src={github}
-        />
-        <img
-          className="row-start-2  ml-[-150%] hover:cursor-pointer"
-          src={instagram}
         />
       </footer>
     </div>
