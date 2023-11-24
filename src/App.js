@@ -9,9 +9,13 @@ import github from './images/github.svg';
 function App() {
   const [showContact, setShowContact] = useState(false);
   
-  const handleContactClick = () => {
-    setShowContact(!showContact);
-  };
+ const handleContactClick = () => {
+   try {
+     setShowContact(!showContact);
+   } catch (error) {
+     console.error("Error updating contact form state:", error);
+   }
+ };
 
   return (
     <div className="font-mono">
